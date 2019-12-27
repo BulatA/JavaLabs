@@ -1,0 +1,49 @@
+Fri Dec 27 20:38:30 MSK 2019 - Message:bulat:4 5 add
+Fri Dec 27 20:38:30 MSK 2019 - Result:Result 9.0
+
+Fri Dec 27 20:38:34 MSK 2019 - Message:bulat:3 4 ff
+Fri Dec 27 20:38:34 MSK 2019 - Result:Unexist operator
+Fri Dec 27 20:39:46 MSK 2019 - Message:bulat:5 4 add
+Fri Dec 27 20:39:46 MSK 2019 - Result:Result 9.0
+
+Fri Dec 27 20:39:54 MSK 2019 - Message:bulat:4 5 add
+Fri Dec 27 20:39:54 MSK 2019 - Result:Result 9.0
+
+Fri Dec 27 20:43:26 MSK 2019 - Message:bulat:5 ff sdd
+Fri Dec 27 20:43:26 MSK 2019 - Result:Wrong format: For input string: "ff"
+Fri Dec 27 20:45:57 MSK 2019 - Message:bulat:5 sdf d
+Fri Dec 27 20:45:57 MSK 2019 - Result:Wrong format: For input string: "sdf"
+Fri Dec 27 20:48:57 MSK 2019 - Message:bulat:d adffw dg
+Fri Dec 27 20:48:57 MSK 2019 - Result:Wrong format: For input string: "d"
+Fri Dec 27 20:49:42 MSK 2019 - Message:bulat:4 5 add
+Fri Dec 27 20:49:42 MSK 2019 - Result:Result 9.0
+
+Fri Dec 27 20:49:44 MSK 2019 - Message:bulat:sdgdrhxh
+Fri Dec 27 20:49:44 MSK 2019 - Result:Wrong format: For input string: "sdgdrhxh"
+Fri Dec 27 20:57:50 MSK 2019 - Message:bulat:egsrg
+Fri Dec 27 20:57:50 MSK 2019 - Result:Wrong format: For input string: "egsrg"
+Fri Dec 27 20:58:18 MSK 2019 - Message:bulat:segdrh
+Fri Dec 27 20:58:18 MSK 2019 - Result:Wrong format: For input string: "segdrh"
+Fri Dec 27 20:59:08 MSK 2019 - Message:bulat:5 4 add
+Fri Dec 27 20:59:08 MSK 2019 - Result:Result 9.0
+
+Fri Dec 27 20:59:14 MSK 2019 - Message:bulat:sgdgr
+Fri Dec 27 20:59:14 MSK 2019 - Result:Wrong format: For input string: "sgdgr"
+Fri Dec 27 20:59:59 MSK 2019 - Message:bulat:srgdrh
+Fri Dec 27 20:59:59 MSK 2019 - Result:Wrong format: For input string: "srgdrh"
+Fri Dec 27 21:01:17 MSK 2019 - Message:bulat:egdrh
+Fri Dec 27 21:01:17 MSK 2019 - Result:Wrong format: For input string: "egdrh"
+Fri Dec 27 21:02:09 MSK 2019 - Message:bulat:5 sdgvdr
+Fri Dec 27 21:02:09 MSK 2019 - Result:Wrong format
+Fri Dec 27 21:04:50 MSK 2019 - Message:bulat:4 5 add
+Fri Dec 27 21:04:50 MSK 2019 - Result:Result 9.0
+
+Fri Dec 27 21:05:01 MSK 2019 - Message:bulat:sbdrh
+Fri Dec 27 21:05:01 MSK 2019 - Result:Wrong format
+
+Fri Dec 27 21:05:06 MSK 2019 - Message:bulat:rhrdhr
+Fri Dec 27 21:05:06 MSK 2019 - Result:Wrong format
+
+Fri Dec 27 21:08:40 MSK 2019 - Message:bulat:5 4 add
+Fri Dec 27 21:08:40 MSK 2019 - Result:Result 9.0
+

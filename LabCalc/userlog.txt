@@ -1,0 +1,8 @@
+Wed Jan 08 12:32:06 MSK 2020 - Fail to connect:Read timed out
+Wed Jan 08 12:34:18 MSK 2020 - Fail to connect:Read timed out
+Wed Jan 08 12:50:23 MSK 2020 - Fail to connect:Connection reset
+Wed Jan 08 12:51:32 MSK 2020 - Fail to connect:Read timed out
+Wed Jan 08 12:52:30 MSK 2020 - Fail to connect:Connection reset
+Wed Jan 08 12:53:21 MSK 2020 - Fail to connect:Read timed out
+Wed Jan 08 12:54:29 MSK 2020 - Fail to connect:Read timed out
+Wed Jan 08 12:55:02 MSK 2020 - Fail to connect:Connection reset

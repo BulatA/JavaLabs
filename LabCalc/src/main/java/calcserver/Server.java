@@ -6,7 +6,7 @@ import java.net.Socket;
 public class Server implements Runnable {
 	public static void main(String[] args) {
 		try {
-			ServerSocket ss = new ServerSocket(1919);
+			ServerSocket ss = new ServerSocket(1122);
 			while(true) {
 				ClientThread mc = new ClientThread(ss.accept());
 				if(mc.client.isConnected()) {

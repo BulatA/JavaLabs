@@ -36,7 +36,13 @@ public class SymbolFinder {
 			}
 			for (int l = 0; l < (chars.length/2000); l++) {
 				System.out.println("Part of text ¹"+l);
-				Character x[] = majority(chars, 2000 * l, 2000 * (l + 1), 15); 
+				Character x[];
+				if((double)chars.length/(2000 * (l+1)) >= 1.0003) {
+					x = majority(chars, 2000 * l, 2000 * (l + 1), 10); 
+				}else {
+					x = majority(chars, 2000 * l, chars.length-1, 10); 
+				}
+					
 				
 				for (int i = 0; i < 10 && i < x.length; i++)
 					System.out.print(x[i].charValue() + " ");

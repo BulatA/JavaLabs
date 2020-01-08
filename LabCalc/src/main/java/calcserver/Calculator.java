@@ -12,7 +12,7 @@ public class Calculator {
 			b = Double.parseDouble(operation[1]);
 			return Solve (a, b, operation[2]);
 		}catch(Exception e) {
-			return "Wrong format\n";
+			return "Wrong format!";
 		}finally {
 				
 		}
@@ -20,10 +20,10 @@ public class Calculator {
 	}
 	public String Solve(double a, double b, String op){
 		switch(op) {
-		case "add" : return "Result "+ (a + b) + "\n";
-		case "substract" : return "Result "+ (a - b) + "\n";
-		case "multiply" : return "Result "+ (a * b) + "\n";
-		case "division" : return "Result "+ (a / b) + "\n"; 
+		case "add" : return "Result "+ (a + b);
+		case "substract" : return "Result "+ (a - b);
+		case "multiply" : return "Result "+ (a * b);
+		case "division" : return "Result "+ (a / b); 
 		default : return "Unexist operator";
 		}
 	}

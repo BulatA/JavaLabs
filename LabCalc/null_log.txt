@@ -1,0 +1,3 @@
+Wed Jan 08 12:16:37 MSK 2020 - Message:calc:4 5 add
+Wed Jan 08 12:16:37 MSK 2020 - Result:Result 9.0
+

@@ -8,49 +8,77 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class ClientThread extends Thread{
 	Socket client;
-	String session;
+	String session = "user";
 	ClientThread(Socket sock) throws IOException{
 		client = sock;
 	}
 	public void run() {
 		while(true) {
 			try {
-				client.setSoTimeout(20000);
+				client.setSoTimeout(60000);
 				BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
 				String s = "";
+				OutputStream out = client.getOutputStream();
+				PrintWriter writer = new PrintWriter(new OutputStreamWriter(out, "UTF8"), true);
 				if ((s = br.readLine()) != null) {
-					System.out.println("ready");
 					System.out.println(s);
-					String[] message = s.split(":");
-					session = message[0];
 					
-					OutputStream out = client.getOutputStream();
-					ObjectOutputStream oos = new ObjectOutputStream(out);
+					try {
+						s.split(":");
+					} catch (Exception e) {
+						String err = "Error format of message! Use : between command and data";
+						out.write(err.getBytes());
+						continue;
+					}
+					String[] message = s.split(":");
+
+					
 					String result = "";
-					if(message[1].equals("get_log")) {
-						
+					
+					if(message[0].equals("get_log")) {
+						ObjectOutputStream oos = new ObjectOutputStream(out);
+						System.out.println(session);
 						List<String> logs = new ArrayList<String>();
 						FileReader fr = new FileReader(session+"_log.txt");
 						Scanner sc = new Scanner(fr);
 						while(sc.hasNextLine()) {
 							logs.add(sc.nextLine());
 						}
+						if(Integer.parseInt(message[1]) >= logs.size()) {
+							oos.writeObject(logs);
+						}
+						else {
+							int start = logs.size()-Integer.parseInt(message[1]);
+							int end = logs.size()-1;
+							System.out.println(start);
+							System.out.println(end);
+							List<String> subLogs = logs.stream().skip(start).collect(Collectors.toList());
+							oos.writeObject(subLogs);
+						}
 						sc.close();
 						fr.close();
-						oos.writeObject(logs);
+						
 					}
 					
-					else 
-						
+					else if (message[0].equals("login")) {
+						session = message[1];
+						String ans = "Welcome, "+session+"!";
+						writer.println(ans);
+					}
+					
+					else if (message[0].equals("calc"))	
 					{
 						Date date = new Date();
 						FileWriter fw = new FileWriter(session+"_log.txt", true);
@@ -61,8 +89,12 @@ public class ClientThread extends Thread{
 						bf.write(date + " - Result:" + result +"\n");
 						bf.flush();
 						fw.close();
-						out.write(result.getBytes());
-						System.out.println(result);
+						writer.println(result);
+					}
+					
+					else {
+						String err = "Wrong command:"+message[0];
+						writer.println(err);
 					}
 					
 				}
@@ -76,7 +108,7 @@ public class ClientThread extends Thread{
 				System.out.println("Connection error:" + e.getMessage());
 				try {
 					Date date = new Date();
-					FileWriter fw = new FileWriter(session+"log.txt", true);
+					FileWriter fw = new FileWriter(session+"_log.txt", true);
 					BufferedWriter bf = new BufferedWriter(fw);
 					bf.write(date + " - Fail to connect:" + e.getMessage()+"\n");
 					

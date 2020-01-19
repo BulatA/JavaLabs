@@ -65,16 +65,19 @@ public class SymbolFinder {
 			if (candidates.containsKey(array[i]))
 				candidates.put(array[i], candidates.get(array[i]).intValue() + 1);
 			else 
-				if (candidates.size() < k - 1)
+				if (candidates.size() < k - 1) {
 					candidates.put(array[i], 1);
+				}
+					
 				else 
 				{
 					Character x[] = (Character[]) candidates.keySet().toArray(new Character[candidates.size()]);
-					for (Character l : x)
+					for (Character l : x) {
+						candidates.put(l, candidates.get(l).intValue() - 1);
 						if (candidates.get(l).intValue() == 0) 
 							candidates.remove(l); 
-						else 
-							candidates.put(l, candidates.get(l).intValue() - 1);
+					}
+							
 				}
 		}
 		return (Character[]) candidates.keySet().toArray(new Character[candidates.size()]); 

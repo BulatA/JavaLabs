@@ -48,24 +48,31 @@ public class ClientThread extends Thread{
 					String result = "";
 					
 					if(message[0].equals("get_log")) {
-						ObjectOutputStream oos = new ObjectOutputStream(out);
 						System.out.println(session);
 						List<String> logs = new ArrayList<String>();
+						String log_data = "";
 						FileReader fr = new FileReader(session+"_log.txt");
 						Scanner sc = new Scanner(fr);
 						while(sc.hasNextLine()) {
 							logs.add(sc.nextLine());
 						}
 						if(Integer.parseInt(message[1]) >= logs.size()) {
-							oos.writeObject(logs);
+							for (String log : logs) {
+								log_data += log+"\n";
+							}
+							log_data += "end";
+							out.write(log_data.getBytes());
 						}
 						else {
 							int start = logs.size()-Integer.parseInt(message[1]);
 							int end = logs.size()-1;
-							System.out.println(start);
-							System.out.println(end);
 							List<String> subLogs = logs.stream().skip(start).collect(Collectors.toList());
-							oos.writeObject(subLogs);
+							for (String log : subLogs) {
+								log_data += log+"\n";
+							}
+							log_data += "end"+"\n";
+							System.out.println(log_data);
+							out.write(log_data.getBytes());
 						}
 						sc.close();
 						fr.close();

@@ -97,3 +97,4 @@ Wed Jan 08 14:50:10 MSK 2020 - Message:calc:3 4 add
 Wed Jan 08 14:50:10 MSK 2020 - Result:Result 7.0
 Wed Jan 08 14:50:44 MSK 2020 - Fail to connect:Read timed out
 Wed Jan 08 15:06:27 MSK 2020 - Fail to connect:Read timed out
+Tue Jan 21 21:06:55 MSK 2020 - Fail to connect:Connection reset

@@ -33,9 +33,15 @@ public class client {
 				writer.println(input);
 
 				if(action.equals("get_log")) {		
-					ObjectInputStream ois = new ObjectInputStream(is);
-					List<String> logs = (List<String>)ois.readObject();
-					logs.forEach(x -> System.out.println(x));
+					BufferedReader br1 = new BufferedReader(new InputStreamReader(is));
+					String str = br1.readLine();
+					while ((str != null) && (!str.isEmpty())) {
+						if(str.equals("end")) {
+							break;
+						}	
+						System.out.println(str);
+						str = br1.readLine();
+					}
 				}
 				else {
 					BufferedReader br1 = new BufferedReader(new InputStreamReader(is));

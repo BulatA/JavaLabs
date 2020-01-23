@@ -3,10 +3,15 @@ package b.symbol;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
+import java.util.stream.Collectors;
 
 public class SymbolFinder {
 	
@@ -62,11 +67,15 @@ public class SymbolFinder {
 		Map<Character, Integer> candidates = new HashMap<Character, Integer>();
 		for (int i = B; i < N; i++) {
 
-			if (candidates.containsKey(array[i]))
+			if (candidates.containsKey(array[i])) {
+				//System.out.println("contain: "+candidates.size());
 				candidates.put(array[i], candidates.get(array[i]).intValue() + 1);
+			}
+				
 			else 
-				if (candidates.size() < k - 1) {
+				if (candidates.size() < k) {
 					candidates.put(array[i], 1);
+					//System.out.println("not contain: "+candidates.size());
 				}
 					
 				else 
@@ -74,15 +83,30 @@ public class SymbolFinder {
 					Character x[] = (Character[]) candidates.keySet().toArray(new Character[candidates.size()]);
 					for (Character l : x) {
 						candidates.put(l, candidates.get(l).intValue() - 1);
-						if (candidates.get(l).intValue() == 0) 
+						//System.out.println(l + ":" +candidates.get(l));
+						if (candidates.get(l).intValue() == 0) {
 							candidates.remove(l); 
+							candidates.put(array[i], 1);
+							//System.out.println("putting:"+array[i]);
+							break;
+							//candidates.put(array[i], 1);
+						}
+					//System.out.println("remain: "+candidates.size());	
 					}
+					//System.out.println("-------");
 							
-				}
+			}
+			candidates = candidates.entrySet().stream()
+					.sorted(Map.Entry.comparingByValue())
+					.collect(Collectors.toMap(
+					          Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 		}
+		
 		return (Character[]) candidates.keySet().toArray(new Character[candidates.size()]); 
 	}
 
-	
+	public static Character[] getPopulate(Character[] array, int B, int N, int k) {
+		return null;
+	}
 
 }
